@@ -1,0 +1,33 @@
+a <-c(15,25,27,28,26,26)
+names(a) <-c(1995,1996,1997,1998,1999,2000)
+barplot(a,main = "Sales",xlab="Years",ylab="Sales")
+
+survey <-c(3,4,1,4,2,2,3,1,2,3,4,4,4,4,1,1,2,3)
+amtable <- table(survey)
+names(amtable) <-c("Coke","Limca","Pepsi","Thumbsup")
+barplot(amtable,main="Barplot of Frequencies",xlab="Drinks",ylab="Frequencies",ylim=c(0,7))
+#help(table)
+percent<- round(100*amtable/length(survey), 1)
+barplot(percent,main="Barplot of Proportion",xlab="Drinks",ylab="Percent",ylim=c(0,35))
+
+a <-c(2810,3542,4301,5632,6593)
+b <-c(890,1363,1662,2071,2752)
+c <-c(540,471,652,895,1113)
+d <-c(1996,1997,1998,1999,2000)
+y <-data.frame(Years=d,Humanities=a,Science=b,Commerce=c)
+y
+help(sum)
+a <-rowSums(y[,2:4])
+barplot(a,names.arg =d,main="Bar Graph")
+barplot(t(data.matrix(y[,2:4])),names.arg =d,main="Sub-Divided Bar Graph",col = c("red","blue","green"),xlab ="Years",ylab ="No. of Students")
+legend("topleft",c("Humanities","Science","Commerce"),fill =c("red","blue","green"))
+
+upper <-c(600,699,799,899,999,1099,1199)
+lower <-c(500,600,700,800,900,1000,1100)
+freq <-c(0,85,77,124,78,36,0)
+freq3 <-cumsum(freq)
+freq1 <-rev(freq)
+freq2 <-rev(cumsum(freq1))
+plot(upper,freq3,type="b",main="Ogives",xlab="Class intervals",ylab="Frequency")
+lines(lower,freq2,type="b")
+
